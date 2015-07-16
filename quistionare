@@ -1,0 +1,45 @@
+
+
+<html>
+    <head>
+        
+        <title> rezult</title>
+    </head>
+    <body>
+        <?php
+            
+             $questionOne = $_REQUEST['questionOne'];
+             $questionTwo = $_REQUEST['questionTwo'];
+             $name = $_REQUEST['name'];
+             var_dump($questionTwo);
+            if (isset($questionOne) && isset($questionTwo) && !empty($name) ) {
+               
+echo <<<EOT
+<h1>$name , thanks for answer. Your answer is:</h1>
+<h2>Select you gender</h2>
+<p>$questionOne<p><br>
+<h2>Select you transport</h2>
+EOT;
+
+
+ 
+                  foreach($questionTwo as $value ) {
+                      echo "$value<br>";
+                  }
+            }
+            else {
+                echo "Please fill out all items";
+            }
+            
+            ?>
+                
+            
+           
+           
+           
+        
+           
+
+    </body>
+    
+</html>
