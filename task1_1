@@ -1,1 +1,30 @@
+<html>
+    <body>
+      
+        <form action="login.php" method ="post">
+            
+      
+            <h2>Enter e-mail</h2>
+            <label>
+            <input type="text" name="email" />
+            </label>
+            <br>
+            <h2>Enter your password</h2>
+            <label>
+            <input type="password" name = "password"/>
+            </label>
+             <br>
+              <br>
+             <label>save me
+                 <input type="checkbox" name = "save"/>
+            </label>    
+            <br>
+              <br>
+            <input type="submit" name="send" value="send form" />
+        </form>
+        
 
+        
+        
+    </body>
+</html>
