@@ -1,0 +1,37 @@
+<html>
+    <body>
+      
+        <form action="questionnaire.php" method ="post">
+            
+            <h2>Select you gender</h2>
+            <label> 
+                <input type="radio" name="questionOne" value="Male"/>Male
+            </label>
+            <label> 
+                <input type="radio" name="questionOne" value="Female"/>Female
+            </label>    
+            <label> 
+            <input type="radio" name="questionOne" value="bi" checked="bi"/>Bi<br>
+            </label> 
+            <h2>Select you car</h2>
+            <label> 
+                <input type="checkbox" name="questionTwo[]" value="Bike"/>Bike
+            </label>
+            <label> 
+                <input type="checkbox" name="questionTwo[]" value="Car"/>Car
+            </label>    
+            <label> 
+            <input type="checkbox" name="questionTwo[]" value="Moto"/>Moto
+            </label> 
+            <h2>Your name</h2>
+            
+            <input type="text" name="name" />
+            <br>
+            <input type="submit" name="send" value="send form" />
+        </form>
+        
+
+        
+        
+    </body>
+</html>
