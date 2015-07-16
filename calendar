@@ -1,0 +1,51 @@
+
+
+<html>
+    <head>
+        
+        <title> rezult</title>
+    </head>
+    <body>
+        <?php
+            
+            $name = $_REQUEST['name'];
+            $day = $_REQUEST['day'];
+            $month =  $_REQUEST['month'];
+            $year =  $_REQUEST['year'];
+             
+            if (!(empty($day ) && empty($month) && empty($year) && empty($name))) {
+                if (checkdate($month, $day, $year)):
+                $formatedData = date("d.m.Y",mktime(0, 0, 0, $month, $day, $year));
+                $leapYear = date("L",mktime(0, 0, 0, 0,0, $year))?"leap year":"no leap year";
+                $correctData="You entered correct date";
+                else :
+                   $formatedData ="$day.$month. $year";
+                    $correctData="You entered incorrect date";
+                    $leapYear = date("L",mktime(0, 0, 0, 0,0, $year))?"leap year":"no leap year";
+                endif;  
+            
+            
+            
+echo <<<EOT
+<h1>$name</h1>
+<h2>Date of birtday:$formatedData</h2>
+<p>$correctData, $leapYear<p><br>
+
+EOT;
+            }
+            else {
+                echo "Please fill out all items";
+            }
+            
+            ?>
+                
+            
+           
+           
+           
+        
+           
+
+    </body>
+    
+</html>
