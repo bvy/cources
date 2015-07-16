@@ -1,0 +1,51 @@
+<html>
+    <body>
+      
+        <form action="calendar.php" method ="post">
+            
+      
+            <h2>Enter your name</h2>
+            <label>
+            <input type="text" name="name" />
+            </label>
+            <br>
+            <h2>Select day, month and year your birthday</h2>
+             <label>
+                 <select name="day">
+                     <?php
+                     for ($i=01; $i<=31; $i++) {
+                     echo "<option value=\"$i\">$i</option>";
+                     }
+                     ?>
+                 </select>
+            </label>
+            <label>
+                 <select name="month">
+                     <?php
+                     for ($i=1; $i<=12; $i++) {
+                     echo "<option value=\"$i\">$i</option>";
+                     }
+                     ?>
+                 </select>
+            </label>
+             <label>
+                 <select name="year">
+                     <?php
+                     for ($i=1970; $i<=2015; $i++) {
+                     echo "<option value=\"$i\">$i</option>";
+                     }
+                     ?>
+                 </select>
+            </label>
+         
+            
+            <br>
+              <br>
+            <input type="submit" name="send" value="send form" />
+        </form>
+        
+
+        
+        
+    </body>
+</html>
