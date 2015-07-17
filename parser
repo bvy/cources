@@ -1,0 +1,84 @@
+<?php
+
+$error = $_FILES['file']['error'];
+$fileType = $_FILES['file']['type'];
+$userFile = ($_FILES['file']['name']);
+$tmpFile = $_FILES['file']['tmp_name'];
+if ($error > 0) {
+    switch ($error)
+        {
+          case 1:  
+              echo 'File exceeded upload_max_filesize'; 
+              break;
+          case 2:
+              echo 'File exceeded max_file_size';
+              break;
+          case 3: 
+              echo 'File only partially uploaded'; 
+              break;
+          case 4: 
+              echo 'No file uploaded. try again';
+              break;
+        }
+    exit;
+}
+
+if ($fileType != 'text/plain')
+  {
+    echo 'Problem: file is not plain text';
+    exit;
+  }    
+
+ $upfile = __DIR__."\\upload\\".$userFile;
+
+  if (is_uploaded_file($tmpFile)) 
+  {
+     if (!move_uploaded_file($tmpFile, $upfile))
+     {
+        echo 'File uploaded, but could not move to destination directory';
+        exit;
+     }
+  } 
+  $str = fileToString($upfile);
+//echo "<pre>";
+  echo $str;
+//echo "</pre>";
+stringToArray($str);
+
+  
+function fileToString($filePatch)
+{
+    $handle = fopen($filePatch,'r');
+    if (!$handle)
+    {
+        echo "Error. Can't read file";
+    }
+    $contents="";
+    
+    $contents = fread($handle,  filesize($filePatch));
+    fclose($handle);
+    return $contents;
+    
+
+      
+}
+
+
+function stringToArray($content)
+{
+   $content= str_replace("\r"," ",$content);
+   $content= str_replace("\n"," ",$content);
+    
+     while ( strpos($content,"  ")!==false )
+        {
+          $content = str_replace("  "," ",$content);
+        }; 
+          
+       // $array = explode(" ", $content);
+       $ar = explode(" ", $content);
+       foreach ($array as $value) {
+           
+       }
+       
+      
+}
