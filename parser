@@ -66,19 +66,22 @@ function fileToString($filePatch)
 
 function stringToArray($content)
 {
-   $content= str_replace("\r"," ",$content);
-   $content= str_replace("\n"," ",$content);
-    
+//   $content= str_replace("\r"," ",$content);
+//   $content= str_replace("\n"," ",$content);
+//    
      while ( strpos($content,"  ")!==false )
         {
           $content = str_replace("  "," ",$content);
         }; 
           
-       // $array = explode(" ", $content);
-       $ar = explode(" ", $content);
-       foreach ($array as $value) {
-           
-       }
+        $array = explode("\r\n", $content);
+     //  $ar = explode(" ", $content);
+    
+     foreach ($array as $key => $value) {
+         $arString = explode(" ", $value);
+         $rezult[]["source"] = $arString[0];
+         //$rezult[]["dest"] = $arString[1];
+     }
        
-      
+       var_dump($rezult);
 }
