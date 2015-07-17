@@ -76,11 +76,12 @@ function stringToArray($content)
           
         $array = explode("\r\n", $content);
      //  $ar = explode(" ", $content);
-    
+    $i=0;
      foreach ($array as $key => $value) {
+        $i++;
          $arString = explode(" ", $value);
-         $rezult[]["source"] = $arString[0];
-         //$rezult[]["dest"] = $arString[1];
+         $rezult[$i]["source"] = $arString[0];
+         $rezult[$i]["dest"] = $arString[1];
      }
        
        var_dump($rezult);
